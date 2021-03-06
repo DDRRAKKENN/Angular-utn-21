@@ -1,0 +1,10 @@
+
+<div *ngIf="loading">
+    <p>Producto elegido:</p>
+    <p>{{producto[0].name | uppercase}}</p>
+    <p>{{producto[0].description}}</p>
+    <button>Comprar</button>
+</div>
+<div *ngIf="!loading">
+    Loading...
+</div>

@@ -1,0 +1,10 @@
+
+<p><b>{{title}}</b></p>
+<div>
+    <p>Productos disponibles:</p>
+    <div *ngFor="let product of products">
+        <p>{{product.name | uppercase}}</p>
+        <p>{{product.price | currency:'EUR'}}</p>
+        <button routerLink="/productos/{{product.id}}">Ver detalle</button>
+    </div>
+</div>

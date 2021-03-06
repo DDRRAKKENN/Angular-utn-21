@@ -1,0 +1,24 @@
+<p><b>{{loginTitle}}</b></p>
+<p><b>Ingrese Email y Password</b></p>
+<form [formGroup]="loginForm" (ngSubmit)="register()">
+    <div>
+        <label for="">Email</label>
+        <br>
+        <input type="email" formControlName="email">
+    </div>
+    <div *ngIf="loginForm.get('email')?.errors">
+        <p *ngIf="loginForm.get('email')?.hasError('required')"> el campo es obligatorio</p>
+    </div>
+    <div>
+        <label for="">Password</label>
+        <br>
+        <input type="password" formControlName="password">
+    </div>
+    <div *ngIf="loginForm.get('password')?.errors">
+        <p *ngIf="loginForm.get('password')?.hasError('required')"> el campo es obligatorio</p>
+        <p *ngIf="loginForm.get('password')?.hasError('minlength')"> el campo tiene menos de 6 caracteres</p>
+        <p *ngIf="loginForm.get('password')?.hasError('maxlength')"> el campo tiene mas de 10 caracteres</p>
+    </div>
+    <input type="submit" value="Registrarse" [disabled]="loginForm.invalid">
+
+</form>
